@@ -9,7 +9,7 @@ buildscript {
         }
 
         dependencies {
-            classpath("com.android.tools.build:gradle:7.4.2")
+            classpath("com.android.tools.build:gradle:8.2.1")
             classpath "com.diffplug.spotless:spotless-plugin-gradle:6.17.0"
         }
     }
@@ -82,9 +82,9 @@ android {
 }
 
 repositories {
+    google()
     mavenCentral()
     mavenLocal()
-    google()
     maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
         url "$rootDir/../node_modules/react-native/android"
@@ -92,5 +92,5 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.facebook.react:react-native:+'
+    implementation 'com.facebook.react:react-android:0.72.7'
 }

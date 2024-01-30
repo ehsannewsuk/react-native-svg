@@ -22,7 +22,7 @@ import type { TextProps } from './elements/Text';
 import type { TextPathProps } from './elements/TextPath';
 import type { TSpanProps } from './elements/TSpan';
 import type { UseProps } from './elements/Use';
-import type { GestureResponderEvent, TransformsStyle } from 'react-native';
+// import type { GestureResponderEvent, TransformsStyle } from 'react-native';
 import {
   // @ts-ignore it is not seen in exports
   unstable_createElement as createElement,
@@ -34,7 +34,7 @@ import type {
 } from './lib/extract/types';
 import SvgTouchableMixin from './lib/SvgTouchableMixin';
 import { resolve } from './lib/resolve';
-import { transformsArrayToProps } from './lib/extract/extractTransform';
+// import { transformsArrayToProps } from './lib/extract/extractTransform';
 
 type BlurEvent = object;
 type FocusEvent = object;
@@ -146,12 +146,14 @@ function parseTransformProp(
   if (Array.isArray(transform)) {
     if (typeof transform[0] === 'number') {
       transformArray.push(`matrix(${transform.join(' ')})`);
-    } else {
-      const stringifiedProps = transformsArrayToProps(
-        transform as TransformsStyle['transform']
-      );
-      transformArray.push(...stringifyTransformProps(stringifiedProps));
     }
+    // else {
+    // TODO: Need to resolve the compile error here
+    // const stringifiedProps = transformsArrayToProps(
+    //   transform as TransformsStyle['transform']
+    // );
+    // transformArray.push(...stringifyTransformProps(stringifiedProps));
+    // }
   } else if (typeof transform === 'string') {
     transformArray.push(transform);
   }
